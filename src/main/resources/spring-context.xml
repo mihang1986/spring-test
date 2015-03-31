@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/mvc
+            http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+            http://www.springframework.org/schema/aop
+            http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+      <context:component-scan base-package="com.sao.test, com.sao.aspect" use-default-filters="true">
+            <context:include-filter type="annotation" expression="org.aspectj.lang.annotation.Aspect"/>
+      </context:component-scan>
+
+      <!--
+            配置spring容器自动为@aspectj切面的bean创建代理
+            参数 proxy-target-class 为false时 采用jdk动态代理来织入增强
+            为true时 采用cglib来织入增强, 也就是说如果为true则无需实现接口类
+       -->
+      <aop:aspectj-autoproxy proxy-target-class="true"/>
+
+
+      <!-- aop切面 XML配置 -->
+      <!--<bean id="pointcut1" class="com.sao.aspect.pointcut1.Pointcut1"/>-->
+      <!--<aop:config>-->
+            <!--<aop:aspect id="afterReturningExample" ref="pointcut1">-->
+                  <!--<aop:pointcut id="pt1"  expression="execution(* *(..))"/>-->
+                  <!--<aop:before method="beforeAdvice" pointcut-ref="pt1"/>-->
+            <!--</aop:aspect>-->
+      <!--</aop:config>-->
+</beans>
