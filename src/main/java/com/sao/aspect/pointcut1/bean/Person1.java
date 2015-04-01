@@ -9,7 +9,11 @@ import org.springframework.stereotype.Component;
 @Component
 @Scope("prototype")
 public class Person1 {
-    public void sayHello(){
-        System.out.println("say Hello 11");
+    public void say(String msg){
+        if(null == msg || "".equals(msg)){
+            throw new RuntimeException("没有传递消息");
+        }else {
+            System.out.println("person say : " + msg);
+        }
     }
 }

@@ -1,6 +1,6 @@
-package com.sao.aspect.pointcut1;
+package com.sao.aspect.pointcut2;
 
-import com.sao.aspect.pointcut1.bean.Person1;
+import com.sao.aspect.pointcut2.bean.Person2;
 import org.junit.Test;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
@@ -13,12 +13,11 @@ import javax.annotation.Resource;
 @ContextConfiguration(locations = {"classpath:spring-context.xml"})
 public class MainTest extends AbstractJUnit4SpringContextTests {
     @Resource
-    private Person1 person1;
-
+    private Person2 person2;
 
     @Test
     public void test1(){
-        System.out.println("====================================== pointcut1 ======================================");
-        person1.say("nihao1");
+        System.out.println("====================================== pointcut2 ======================================");
+        person2.say("nihao2", "haha");
     }
 }

@@ -1,6 +1,5 @@
 package com.sao.main;
 
-import com.sao.test.PeopleBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
